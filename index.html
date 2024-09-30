@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Hello World")
+
+        function getComputerChoice() {
+            let randomNumber = Math.floor(Math.random()*3);
+            switch(randomNumber) {
+                case 0:
+                    return 'Rock';
+                    break;
+                case 1:
+                    return 'Paper';
+                    break;
+                case 2:
+                    return 'Scissors';
+                    break;
+                }
+        }
+
+        function getHumanChoice() {
+            let inputChoice = prompt("What's your choice? Enter rock, paper, or scissors!");
+            inputChoice = inputChoice.toLocaleLowerCase();
+
+            switch(inputChoice) {
+                case 'rock':
+                    return 'Rock';
+                    break;
+                case 'paper':
+                    return 'Paper';
+                    break;
+                case 'scissors':
+                    return 'Scissors';
+                    break;
+                default:
+                    alert("That's not a valid choice. Please choose again.");
+                    return getHumanChoice();
+            }
+        }
+
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function playGame() {
+            function playRound(humanChoice, computerChoice) {
+                if (humanChoice === computerChoice) {
+                    alert("Draw, You both chose the same option" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                } else if ((humanChoice === 'Rock') && (computerChoice === 'Paper')) {
+                    alert("You lose! Paper beats Rock" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    computerScore++;
+                } else if ((humanChoice === 'Rock') && (computerChoice === 'Scissors')) {
+                    alert("You win! Rock beats Scissors" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    humanScore++;
+                } else if ((humanChoice === 'Paper') && (computerChoice === 'Rock')) {
+                    alert("You win! Paper beats Rock" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    humanScore++;
+                } else if ((humanChoice === 'Paper') && (computerChoice === 'Scissors')) {
+                    alert("You lose! Scissors beats Paper" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    computerScore++;
+                } else if ((humanChoice === 'Scissors') && (computerChoice === 'Rock')) {
+                    alert("You lose! Rock beats Scissors" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    computerScore++;
+                } else {
+                    alert("You win! Scissors beats Paper" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    humanScore++;
+                }
+                alert("Your score is "+ humanScore+ " and the computer's score is "+computerScore+ ".");
+            }
+
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+
+            playRound(humanSelection, computerSelection);
+        }
+
+        function startGame() {
+            alert("This is a rock paper scissors game. You will play against the computer for 5 rounds.")
+            
+            let round = 0;
+            do {
+                round += 1;
+                alert("Round " +round +". Fight!")
+                playGame();
+            } while (round < 5);
+            
+            if (humanScore > computerScore) {
+                alert("Congratulations! You won the game.")
+            } else if (humanScore < computerScore) {
+                alert("Oh no, you lost the game. Better luck next time!")
+            } else {
+                alert("You tied against the computer. Guess thats better than losing.")
+            }
+            
+            let rematch = window.confirm("Do you want a rematch?");
+            if (rematch) {
+                round = 0;
+                humanScore = 0;
+                computerScore = 0;
+                startGame();
+            } else {
+                }
+        }
+
+        startGame();
+    </script>
+</body>
+</html>
