@@ -50,27 +50,27 @@
         function playGame() {
             function playRound(humanChoice, computerChoice) {
                 if (humanChoice === computerChoice) {
-                    alert("Draw, You both chose the same option" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    console.log("Draw, You both chose the same option" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
                 } else if ((humanChoice === 'Rock') && (computerChoice === 'Paper')) {
-                    alert("You lose! Paper beats Rock" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    console.log("You lose! Paper beats Rock" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
                     computerScore++;
                 } else if ((humanChoice === 'Rock') && (computerChoice === 'Scissors')) {
-                    alert("You win! Rock beats Scissors" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    console.log("You win! Rock beats Scissors" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
                     humanScore++;
                 } else if ((humanChoice === 'Paper') && (computerChoice === 'Rock')) {
-                    alert("You win! Paper beats Rock" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    console.log("You win! Paper beats Rock" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
                     humanScore++;
                 } else if ((humanChoice === 'Paper') && (computerChoice === 'Scissors')) {
-                    alert("You lose! Scissors beats Paper" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    console.log("You lose! Scissors beats Paper" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
                     computerScore++;
                 } else if ((humanChoice === 'Scissors') && (computerChoice === 'Rock')) {
-                    alert("You lose! Rock beats Scissors" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    console.log("You lose! Rock beats Scissors" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
                     computerScore++;
                 } else {
-                    alert("You win! Scissors beats Paper" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
+                    console.log("You win! Scissors beats Paper" +". You choose " +humanChoice +" while the computer choose " +computerChoice +".");
                     humanScore++;
                 }
-                alert("Your score is "+ humanScore+ " and the computer's score is "+computerScore+ ".");
+                console.log("Your score is "+ humanScore+ " and the computer's score is "+computerScore+ ".");
             }
 
             const humanSelection = getHumanChoice();
@@ -85,26 +85,26 @@
             let round = 0;
             do {
                 round += 1;
-                alert("Round " +round +". Fight!")
+                //alert("Round " +round +". Fight!")
                 playGame();
             } while (round < 5);
             
             if (humanScore > computerScore) {
-                alert("Congratulations! You won the game.")
+                console.log("Congratulations! You won the game.")
             } else if (humanScore < computerScore) {
-                alert("Oh no, you lost the game. Better luck next time!")
+                console.log("Oh no, you lost the game. Better luck next time!")
             } else {
-                alert("You tied against the computer. Guess thats better than losing.")
+                console.log("You tied against the computer. Guess thats better than losing.")
             }
             
-            let rematch = window.confirm("Do you want a rematch?");
-            if (rematch) {
-                round = 0;
-                humanScore = 0;
-                computerScore = 0;
-                startGame();
-            } else {
-                }
+            //let rematch = window.confirm("Do you want a rematch?");
+            //if (rematch) {
+                //round = 0;
+                //humanScore = 0;
+                //computerScore = 0;
+                //startGame();
+            //} else {
+                //}
         }
 
         startGame();
